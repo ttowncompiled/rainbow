@@ -48,6 +48,7 @@ import org.sa.rainbow.stitch.core.Var;
 import org.sa.rainbow.stitch.parser.StitchParser;
 import org.sa.rainbow.stitch.util.Tool;
 import org.sa.rainbow.util.Util;
+import org.sa.rainbow.util.ReflectionsExtension;
 
 /**
  * Created by schmerl on 10/3/2016.
@@ -1200,7 +1201,7 @@ public class StitchScopeEstablisher extends BaseStitchBehavior {
                     List<ClassLoader> classLoaderList = new LinkedList<ClassLoader> ();
                     classLoaderList.add (ClasspathHelper.contextClassLoader ());
                     classLoaderList.add (ClasspathHelper.staticClassLoader ());
-                    Reflections reflections = new Reflections (new ConfigurationBuilder ()
+                    Reflections reflections = new ReflectionsExtension (new ConfigurationBuilder ()
                                                                        .setScanners (new SubTypesScanner (false), new
                                                                                ResourcesScanner ())
                                                                        .setUrls (ClasspathHelper.forClassLoader

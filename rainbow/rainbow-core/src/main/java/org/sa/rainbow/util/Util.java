@@ -117,7 +117,7 @@ public class Util {
         }
         return basePath;
     }
-    
+
     public static String makeValidPath(String path) {
     	return path.replaceAll("\"", "");
     }
@@ -273,7 +273,7 @@ public class Util {
 
     /**
      * Generates and returns a unique identifier composed of name@target, target converted to lowercase.
-     * 
+     *
      * @param name
      *            the element name
      * @param target
@@ -322,7 +322,7 @@ public class Util {
 
     /**
      * Reads and returns all available output from a given Process.
-     * 
+     *
      * @param p
      *            the process to read output from
      * @return String the textual output, with any MS-Dos newline replaced
@@ -484,7 +484,7 @@ public class Util {
 
     /**
      * Throws and catches a {@link Throwable}, and then reports the stack. This is useful for finding call traces
-     * 
+     *
      * @param message
      *            the message to report
      */
@@ -504,7 +504,7 @@ public class Util {
 
     /**
      * Lists Classes inside a given package.
-     * 
+     *
      * @author Jon Peck http://jonpeck.com (adapted from http://www.javaworld.com/javaworld/javatips/jw-javatip113.html)
      * @param pkgname
      *            String name of a Package, e.g., "java.lang"
@@ -518,7 +518,7 @@ public class Util {
         classLoaderList.add (ClasspathHelper.contextClassLoader ());
         classLoaderList.add (ClasspathHelper.staticClassLoader ());
 
-        Reflections reflections = new Reflections (new ConfigurationBuilder ()
+        Reflections reflections = new ReflectionsExtension (new ConfigurationBuilder ()
         .setScanners (new SubTypesScanner (false /* don't exclude Object.class */), new ResourcesScanner ())
                 .setUrls (ClasspathHelper.forClassLoader (classLoaderList.toArray (new ClassLoader[classLoaderList.size ()])))
         .filterInputsBy (new FilterBuilder ().include (FilterBuilder.prefix (pkgname))));
@@ -626,7 +626,7 @@ public class Util {
     public static boolean safeEquals (Object a, Object b) {
         return a != null ? a.equals (b) : b == null;
     }
-    
+
     public static List<Method> getMethodsAnnotatedWith(final Class<?> type, final Class<? extends Annotation> annotation) {
     	final List<Method> methods = new ArrayList<>();
     	Class<?> clazz = type;
